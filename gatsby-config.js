@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/the-planets",
   siteMetadata: {
     siteUrl: `https://www.yourdomain.tld`
   },
