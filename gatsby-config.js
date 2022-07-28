@@ -3,12 +3,24 @@ module.exports = {
   siteMetadata: {
     siteUrl: `https://www.yourdomain.tld`
   },
-  plugins: ["gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "images",
-      "path": "./src/images/"
+  plugins: [
+    "gatsby-plugin-sass",
+    "gatsby-plugin-image",
+    `gatsby-plugin-sharp`,
+    "gatsby-transformer-sharp",
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        "name": "images",
+        path: `./src/images`,
+      }
     },
-    __key: "images"
-  }]
+    "gatsby-transformer-json",
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `./src/data/`,
+      }
+    }
+  ],
 };
