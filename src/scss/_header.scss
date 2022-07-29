@@ -1,0 +1,56 @@
+@import "./variables";
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $navy;
+  border-bottom: 1px solid $white;
+  padding: 22px 32px;
+
+  @media screen and (max-width:860px) {
+    flex-direction: column;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      margin-right: 33px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: $white;
+        font-family: $league;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        &:hover {
+          color: $light-gray;
+        }
+      }
+    }
+  }
+
+  .ttl {
+
+    @media screen and (max-width:860px) {
+      margin-bottom: 35px;
+    }
+
+    a {
+      text-decoration: none;
+      color: $white;
+      font-size: 28px;
+      font-family: $antonio;
+      letter-spacing: -1.05px;
+    }
+  }
+}
