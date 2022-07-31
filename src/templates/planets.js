@@ -61,10 +61,10 @@ export default function TemplatePage ({ data, location }) {
       <Header />
       <main>
         <div className="spBtnWrapper">
-          <button onClick={getOverview} aria-label="show overview image" className={isOverview ? planets.color : ""}>
+          <button onClick={getOverview} aria-label="show overview image" className={isOverview ? planets.color : "inactive"}>
             overview
           </button>
-          <button onClick={getInternal} aria-label="show internal structure image" className={isInternal ? planets.color : ""}>
+          <button onClick={getInternal} aria-label="show internal structure image" className={isInternal ? planets.color : "inactive"}>
             structure
           </button>
           <button onClick={getGeology} aria-label="show surface geology image" className={isSurface ? planets.color : "inactive"}>
