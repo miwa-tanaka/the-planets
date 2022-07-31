@@ -4,18 +4,32 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: $navy;
-  border-bottom: 1px solid $white;
+  border-bottom: 1px solid $light-gray;
   padding: 22px 32px;
 
   @media screen and (max-width:860px) {
     flex-direction: column;
   }
 
+  @media screen and (max-width:674px) {
+    flex-direction: row;
+    padding: 16px 24px;
+  }
+
   nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (max-width:674px) {
+      display: none;
+    }
 
     div {
       margin-right: 33px;
@@ -45,12 +59,155 @@ header {
       margin-bottom: 35px;
     }
 
+    @media screen and (max-width:674px) {
+      margin-bottom: 0;
+    }
+
     a {
       text-decoration: none;
       color: $white;
       font-size: 28px;
       font-family: $antonio;
       letter-spacing: -1.05px;
+    }
+  }
+
+  .hamMenuBtn {
+    display: none;
+
+    @media screen and (max-width:674px) {
+      display: block;
+      width: 50px;
+      height: 50px;
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+    }
+
+    .hamMenu1 {
+      top:15px;
+    }
+
+    .hamMenu2 {
+      top:23px;
+    }
+
+    .hamMenu3 {
+      top:31px;
+    }
+
+    .isOpen {
+      position: relative;
+      width: 50px;
+      height: 50px;
+
+      span {
+        position: absolute;
+        display: inline-block;
+        background: $light-gray;
+        width: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 3px;
+      }
+    }
+
+    .isClose {
+      position: relative;
+      width: 50px;
+      height: 50px;
+
+      span {
+        position: absolute;
+        display: inline-block;
+        background: $white;
+        width: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 3px;
+      }
+    }
+  }
+
+  .hamMenuWrapper {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 83px;
+    width: 100%;
+    height: 100vh;
+    background-color: $navy;
+    overflow: auto;
+    z-index: 1;
+
+    a {
+      width: 100%;
+      height: auto;
+      text-decoration: none;
+      font-family: $league;
+      font-size: 16px;
+      color: $white;
+      letter-spacing: 1.36364px;
+      text-transform: uppercase;
+
+      .linkContent {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 85%;
+        height: 100%;
+        margin: 0 auto;
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .circle {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+      }
+
+      .mercury {
+        background-color: $mercury;
+      }
+
+      .venus {
+        background-color: $venus;
+      }
+
+      .earth {
+        background-color: $earth;
+      }
+
+      .mars {
+        background-color: $mars;
+      }
+
+      .jupiter {
+        background-color: $jupiter;
+      }
+
+      .saturn {
+        background-color: $saturn;
+      }
+
+      .uranus {
+        background-color: $uranus;
+      }
+
+      .neptune {
+        background-color: $neptune;
+      }
+
+      .pageName {
+        margin-left: 20px;
+        margin-right: auto;
+      }
     }
   }
 }
