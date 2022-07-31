@@ -1,7 +1,8 @@
 module.exports = {
   pathPrefix: `/the-planets`,
   siteMetadata: {
-    siteUrl: `https://miwa-tanaka.github.io/the-planets/`
+    siteUrl: `https://miwa-tanaka.github.io/the-planets/`,
+    description: `Planets in our solar system`,
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -33,6 +34,12 @@ module.exports = {
         display: `standalone`,
         icon: "src/images/favicon.png",
       },
+    },
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'en'
+      }
     },
   ],
 };
