@@ -14,7 +14,7 @@ export default function TemplatePage ({ data, location }) {
 
   let planets = data.allPlanetsJson.nodes[0]
 
-  if (location.pathname === '/Mercury/') {
+  if (location.pathname === '/mercury/') {
     planets = data.allPlanetsJson.nodes[0]
   } else if (location.pathname === '/venus/') {
     planets = data.allPlanetsJson.nodes[1]
@@ -60,6 +60,17 @@ export default function TemplatePage ({ data, location }) {
       <title>{planets.name}</title>
       <Header />
       <main>
+        <div className="spBtnWrapper">
+          <button onClick={getOverview} aria-label="show overview image" className={isOverview ? planets.color : ""}>
+            overview
+          </button>
+          <button onClick={getInternal} aria-label="show internal structure image" className={isInternal ? planets.color : ""}>
+            structure
+          </button>
+          <button onClick={getGeology} aria-label="show surface geology image" className={isSurface ? planets.color : "inactive"}>
+            surface
+          </button>
+        </div>
         <div className="datesWrapper">
           <div className="imgsWrapper">
           {isOverview &&
@@ -110,19 +121,19 @@ export default function TemplatePage ({ data, location }) {
                 </a>
               </div>
             }
-            <div className="overview">
+            <div className="pcBtnWrapper overview">
               <button onClick={getOverview} aria-label="show overview image" className={isOverview ? planets.color : "inactive"}>
                 <span>01</span>
                 overview
               </button>
             </div>
-            <div className="internal">
+            <div className="pcBtnWrapper internal">
               <button onClick={getInternal} aria-label="show internal structure image" className={isInternal ? planets.color : "inactive"}>
                 <span>02</span>
                 internal structure
               </button>
             </div>
-            <div className="surface">
+            <div className="pcBtnWrapper surface">
               <button onClick={getGeology} aria-label="show surface geology image" className={isSurface ? planets.color : "inactive"}>
                 <span>03</span>
                 surface geology
@@ -133,22 +144,18 @@ export default function TemplatePage ({ data, location }) {
         <div className="detailsWrapper">
           <div className="box">
             <span className="boxTtl">rotation time</span>
-            <br />
             <span className="boxNum">{planets.rotation}</span>
           </div>
           <div className="box">
             <span className="boxTtl">revolution time</span>
-            <br />
             <span className="boxNum">{planets.revolution}</span>
           </div>
           <div className="box">
             <span className="boxTtl">redius</span>
-            <br />
             <span className="boxNum">{planets.radius}</span>
           </div>
           <div className="box">
             <span className="boxTtl">average temp.</span>
-            <br />
             <span className="boxNum">{planets.temperature}</span>
           </div>
         </div>
@@ -164,7 +171,7 @@ export const query = graphql`
       nodes {
         geologyImg {
           childImageSharp {
-            gatsbyImageData(formats: PNG)
+            gatsbyImageData(formats: PNG, placeholder: TRACED_SVG)
           }
         }
         color
@@ -179,12 +186,12 @@ export const query = graphql`
         }
         planetImg {
           childImageSharp {
-            gatsbyImageData(formats: PNG)
+            gatsbyImageData(formats: PNG, placeholder: TRACED_SVG)
           }
         }
         internalImg {
           childImageSharp {
-            gatsbyImageData(formats: PNG)
+            gatsbyImageData(formats: PNG, placeholder: TRACED_SVG)
           }
         }
         structure {
