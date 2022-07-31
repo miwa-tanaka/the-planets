@@ -14,27 +14,23 @@ export default function TemplatePage ({ data, location }) {
 
   let planets = data.allPlanetsJson.nodes[0]
 
-  console.log(location.pathname)
-
-  if (location.pathname === '/mercury/') {
+  if (location.pathname === '/mercury/' || location.pathname === '/the-planets/mercury/') {
     planets = data.allPlanetsJson.nodes[0]
-  } else if (location.pathname === '/venus/') {
+  } else if (location.pathname === '/venus/' || location.pathname === '/the-planets/venus/') {
     planets = data.allPlanetsJson.nodes[1]
-  } else if (location.pathname === '/earth/') {
+  } else if (location.pathname === '/earth/' || location.pathname === '/the-planets/earth/') {
     planets = data.allPlanetsJson.nodes[2]
-  } else if (location.pathname === '/mars/') {
+  } else if (location.pathname === '/mars/' || location.pathname === '/the-planets/mars/') {
     planets = data.allPlanetsJson.nodes[3]
-  } else if (location.pathname === '/jupiter/') {
+  } else if (location.pathname === '/jupiter/' || location.pathname === '/the-planets/jupiter/') {
     planets = data.allPlanetsJson.nodes[4]
-  } else if (location.pathname === '/saturn/') {
+  } else if (location.pathname === '/saturn/' || location.pathname === '/the-planets/saturn/') {
     planets = data.allPlanetsJson.nodes[5]
-  } else if (location.pathname === '/uranus/') {
+  } else if (location.pathname === '/uranus/' || location.pathname === '/the-planets/uranus/') {
     planets = data.allPlanetsJson.nodes[6]
-  } else if (location.pathname === '/neptune/') {
+  } else if (location.pathname === '/neptune/' || location.pathname === '/the-planets/neptune/') {
     planets = data.allPlanetsJson.nodes[7]
   }
-
-  console.log(planets)
 
   let planetImg = getImage(planets.planetImg)
   let internalImg = getImage(planets.internalImg)
