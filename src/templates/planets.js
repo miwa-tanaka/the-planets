@@ -14,6 +14,8 @@ export default function TemplatePage ({ data, location }) {
 
   let planets = data.allPlanetsJson.nodes[0]
 
+  console.log(location.pathname)
+
   if (location.pathname === '/mercury/') {
     planets = data.allPlanetsJson.nodes[0]
   } else if (location.pathname === '/venus/') {
@@ -31,6 +33,8 @@ export default function TemplatePage ({ data, location }) {
   } else if (location.pathname === '/neptune/') {
     planets = data.allPlanetsJson.nodes[7]
   }
+
+  console.log(planets)
 
   let planetImg = getImage(planets.planetImg)
   let internalImg = getImage(planets.internalImg)
